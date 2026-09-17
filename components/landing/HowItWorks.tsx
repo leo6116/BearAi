@@ -2,33 +2,20 @@
 
 import { useEffect, useRef } from "react";
 import { PenLine, Clapperboard, ClipboardCopy } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
-const STEPS = [
-  {
-    number: "01",
-    icon: PenLine,
-    title: "Drop an idea",
-    description:
-      "Type a topic or upload a reference image. BearAi reads it and infers the creative direction.",
-  },
-  {
-    number: "02",
-    icon: Clapperboard,
-    title: "AI directs the shots",
-    description:
-      "A full script is written, broken into 3–5 second scenes, each staged with real cinematography.",
-  },
-  {
-    number: "03",
-    icon: ClipboardCopy,
-    title: "Copy & generate",
-    description:
-      "Every scene ships with a shot-ready prompt. Paste it straight into Runway, Kling, Luma, or Sora.",
-  },
-];
+const STEP_ICONS = [PenLine, Clapperboard, ClipboardCopy];
+
+interface StepMessage {
+  number: string;
+  title: string;
+  description: string;
+}
 
 export function HowItWorks() {
+  const t = useTranslations("howItWorks");
+  const steps = t.raw("steps") as StepMessage[];
   const sectionRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -83,9 +70,9 @@ export function HowItWorks() {
 
   return (
     <section ref={sectionRef} className="border-b border-border px-6 py-28 md:px-20 md:py-40">
-      <p className="eyebrow mb-4">How it works</p>
+      <p className="eyebrow mb-4">{t("eyebrow")}</p>
       <h2 className="max-w-2xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold leading-tight text-text-primary">
-        Three steps between a blank page and a finished shot list.
+        {t("heading")}
       </h2>
 
       <div className="relative mt-20">
@@ -98,8 +85,8 @@ export function HowItWorks() {
         </div>
 
         <div className="grid gap-12 md:grid-cols-3 md:gap-8">
-          {STEPS.map((step, i) => {
-            const Icon = step.icon;
+          {steps.map((step, i) => {
+            const Icon = STEP_ICONS[i];
             return (
               <div
                 key={step.number}

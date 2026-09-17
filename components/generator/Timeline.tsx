@@ -1,6 +1,7 @@
 "use client";
 
 import { Clock } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CopyButton } from "@/components/generator/CopyButton";
 import { ExportMenu } from "@/components/generator/ExportMenu";
 import { SceneCard } from "@/components/generator/SceneCard";
@@ -13,28 +14,35 @@ interface TimelineProps {
   onRegenerateScene: (sceneNumber: number) => void;
 }
 
-function buildAllPromptsText(result: GenerationResult): string {
+function buildAllPromptsText(result: GenerationResult, scenePrefix: string): string {
   return result.scenes
-    .map((s) => `Scene ${s.sceneNumber} (${s.durationSeconds}s):\n${s.visualPrompt}`)
+    .map((s) => `${scenePrefix} ${s.sceneNumber} (${s.durationSeconds}s):\n${s.visualPrompt}`)
     .join("\n\n" + "=".repeat(48) + "\n\n");
 }
 
 export function Timeline({ result, regeneratingScenes, onRegenerateScene }: TimelineProps) {
+  const t = useTranslations("timeline");
+
   return (
     <div>
       <div className="mb-10 rounded-lg border border-border bg-bg-secondary p-6 md:p-8">
-        <p className="eyebrow mb-3">Story summary</p>
+        <p className="eyebrow mb-3">{t("storySummaryLabel")}</p>
         <p className="text-lg leading-relaxed text-text-primary">{result.storySummary}</p>
       </div>
 
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-sm font-medium text-text-secondary">
           <Clock className="h-4 w-4 text-accent" />
-          Total duration: {formatTimestamp(result.totalDurationSeconds)} · {result.scenes.length}{" "}
-          scenes
+          {t("totalDuration", {
+            time: formatTimestamp(result.totalDurationSeconds),
+            count: result.scenes.length,
+          })}
         </div>
         <div className="flex items-center gap-3">
-          <CopyButton text={buildAllPromptsText(result)} label="Copy All Prompts" />
+          <CopyButton
+            text={buildAllPromptsText(result, t("scenePrefix"))}
+            label={t("copyAllPrompts")}
+          />
           <ExportMenu result={result} />
         </div>
       </div>

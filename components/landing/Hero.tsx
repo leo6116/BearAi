@@ -3,12 +3,10 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-
-const HEADLINE_LINE_1 = ["From", "Idea", "to"];
-const HEADLINE_LINE_2 = ["Shot-Ready", "Prompts."];
 
 const container: Variants = {
   hidden: {},
@@ -27,6 +25,10 @@ const word: Variants = {
 };
 
 export function Hero() {
+  const t = useTranslations("hero");
+  const headlineLine1 = t.raw("headlineLine1") as string[];
+  const headlineLine2 = t.raw("headlineLine2") as string[];
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
 
@@ -70,7 +72,7 @@ export function Hero() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="eyebrow relative z-10 mb-8"
       >
-        AI Video Script &amp; Prompt Generator
+        {t("eyebrow")}
       </motion.p>
 
       <motion.h1
@@ -80,7 +82,7 @@ export function Hero() {
         className="relative z-10 max-w-[16ch] text-[clamp(2.75rem,7.5vw,7rem)] font-black leading-[0.95] tracking-tightest text-text-primary"
       >
         <span className="block overflow-hidden">
-          {HEADLINE_LINE_1.map((w, i) => (
+          {headlineLine1.map((w, i) => (
             <span key={i} className="mr-[0.25em] inline-block overflow-hidden align-bottom">
               <motion.span variants={word} className="inline-block">
                 {w}
@@ -89,12 +91,12 @@ export function Hero() {
           ))}
         </span>
         <span className="block overflow-hidden">
-          {HEADLINE_LINE_2.map((w, i) => (
+          {headlineLine2.map((w, i) => (
             <span key={i} className="mr-[0.25em] inline-block overflow-hidden align-bottom">
               <motion.span
                 variants={word}
                 className={
-                  i === HEADLINE_LINE_2.length - 1 ? "inline-block text-accent" : "inline-block"
+                  i === headlineLine2.length - 1 ? "inline-block text-accent" : "inline-block"
                 }
               >
                 {w}
@@ -111,9 +113,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.7 }}
           className="max-w-md text-base leading-relaxed text-text-secondary md:text-lg"
         >
-          Give BearAi a topic or a reference image. It writes the script, breaks it into scenes, and
-          crafts detailed, cinematography-grade prompts — ready to paste into Runway, Kling, Luma,
-          Pika, Sora, or Veo.
+          {t("subheadline")}
         </motion.p>
 
         <motion.div
@@ -123,7 +123,7 @@ export function Hero() {
         >
           <Link href="/generate">
             <MagneticButton className="group h-16 gap-3 rounded-pill bg-accent px-9 text-lg font-semibold text-accent-foreground transition-colors duration-300 hover:bg-accent-hover">
-              Start Generating
+              {t("cta")}
               <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </MagneticButton>
           </Link>

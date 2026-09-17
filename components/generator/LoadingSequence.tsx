@@ -2,15 +2,9 @@
 
 import { Check, Clapperboard, Film, PenLine, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import type { GenerationStep } from "@/types";
 import { cn } from "@/lib/utils";
-
-const STEPS: { key: GenerationStep; label: string; icon: typeof PenLine }[] = [
-  { key: "writing-script", label: "Writing script…", icon: PenLine },
-  { key: "breaking-scenes", label: "Breaking down scenes…", icon: Film },
-  { key: "directing-shots", label: "Directing shots…", icon: Clapperboard },
-  { key: "finalizing", label: "Finalizing prompts…", icon: Sparkles },
-];
 
 const ORDER: GenerationStep[] = [
   "writing-script",
@@ -19,8 +13,13 @@ const ORDER: GenerationStep[] = [
   "finalizing",
 ];
 
+const ICONS = [PenLine, Film, Clapperboard, Sparkles];
+const MESSAGE_KEYS = ["writingScript", "breakingScenes", "directingShots", "finalizing"] as const;
+
 export function LoadingSequence({ step }: { step: GenerationStep }) {
+  const t = useTranslations("loading");
   const currentIndex = ORDER.indexOf(step);
+  const steps = MESSAGE_KEYS.map((key, i) => ({ key: ORDER[i], label: t(key), icon: ICONS[i] }));
 
   return (
     <div className="mx-auto flex max-w-md flex-col items-center py-24 text-center">
@@ -38,7 +37,7 @@ export function LoadingSequence({ step }: { step: GenerationStep }) {
             transition={{ duration: 0.3 }}
           >
             {(() => {
-              const Icon = STEPS[Math.max(currentIndex, 0)]?.icon ?? PenLine;
+              const Icon = steps[Math.max(currentIndex, 0)]?.icon ?? PenLine;
               return <Icon className="h-7 w-7 text-accent-foreground" strokeWidth={2} />;
             })()}
           </motion.div>
@@ -46,7 +45,7 @@ export function LoadingSequence({ step }: { step: GenerationStep }) {
       </div>
 
       <div className="w-full space-y-3 text-left">
-        {STEPS.map((s, i) => {
+        {steps.map((s, i) => {
           const isDone = i < currentIndex;
           const isActive = i === currentIndex;
           return (
@@ -90,7 +89,7 @@ export function LoadingSequence({ step }: { step: GenerationStep }) {
         })}
       </div>
       <p className="sr-only" role="status" aria-live="polite">
-        {STEPS[Math.max(currentIndex, 0)]?.label}
+        {steps[Math.max(currentIndex, 0)]?.label}
       </p>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { Nav } from "@/components/landing/Nav";
 import { InputPanel } from "@/components/generator/InputPanel";
@@ -12,6 +13,7 @@ import { generateSessionId } from "@/lib/utils";
 import type { GenerationRequest } from "@/types";
 
 export default function GeneratePage() {
+  const t = useTranslations("generate");
   const router = useRouter();
   const step = useGenerationStore((s) => s.step);
   const error = useGenerationStore((s) => s.error);
@@ -32,7 +34,7 @@ export default function GeneratePage() {
   async function handleSubmit() {
     const result = await runGeneration();
     if (!result) {
-      toast.error("Generation failed. Please try again.");
+      toast.error(t("genericError"));
       return;
     }
 
@@ -72,9 +74,9 @@ export default function GeneratePage() {
               transition={{ duration: 0.5 }}
             >
               <div className="mb-14 text-center">
-                <p className="eyebrow mb-4">Generator</p>
+                <p className="eyebrow mb-4">{t("eyebrow")}</p>
                 <h1 className="mx-auto max-w-2xl text-[clamp(2rem,4.5vw,3.5rem)] font-black leading-[1.02] tracking-tightest text-text-primary">
-                  Tell BearAi what to shoot.
+                  {t("title")}
                 </h1>
               </div>
               {error && (

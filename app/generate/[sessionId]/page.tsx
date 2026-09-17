@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { Nav } from "@/components/landing/Nav";
 import { Timeline } from "@/components/generator/Timeline";
@@ -13,6 +14,7 @@ import { loadSession, saveSession } from "@/lib/sessionStorage";
 import type { GenerationRequest } from "@/types";
 
 export default function SessionPage() {
+  const t = useTranslations("session");
   const params = useParams<{ sessionId: string }>();
   const sessionId = params.sessionId;
 
@@ -53,9 +55,9 @@ export default function SessionPage() {
   async function handleRegenerate(sceneNumber: number) {
     const succeeded = await regenerateScene(sceneNumber);
     if (succeeded) {
-      toast.success(`Scene ${sceneNumber} regenerated`);
+      toast.success(t("regenerateSuccess", { number: sceneNumber }));
     } else {
-      toast.error("Couldn't regenerate that scene. Please try again.");
+      toast.error(t("regenerateError"));
     }
   }
 
@@ -74,16 +76,15 @@ export default function SessionPage() {
 
           {status === "missing" && (
             <div className="py-24 text-center">
-              <p className="eyebrow mb-4">Session not found</p>
+              <p className="eyebrow mb-4">{t("missingTitle")}</p>
               <h1 className="mb-6 text-3xl font-bold text-text-primary md:text-4xl">
-                We couldn&apos;t find that shot list.
+                {t("missingHeading")}
               </h1>
               <p className="mx-auto mb-10 max-w-md text-text-secondary">
-                This link may have expired, or it was opened in a different browser. Sessions are
-                stored locally in the browser that generated them.
+                {t("missingDescription")}
               </p>
               <Link href="/generate">
-                <Button>Start a new generation</Button>
+                <Button>{t("missingCta")}</Button>
               </Link>
             </div>
           )}

@@ -3,29 +3,21 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import { ModeToggle } from "@/components/generator/ModeToggle";
 import { ImageDropzone } from "@/components/generator/ImageDropzone";
 import { PillSelect } from "@/components/ui/PillSelect";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { ASPECT_RATIO_OPTIONS, DURATION_OPTIONS, TONE_OPTIONS } from "@/lib/constants";
+import { DURATION_OPTIONS, useAspectRatioOptions, useToneOptions } from "@/lib/constants";
 import { useGenerationStore } from "@/store/generationStore";
-
-const topicFormSchema = z.object({
-  topic: z
-    .string()
-    .trim()
-    .min(3, "Tell us a bit more — at least 3 characters.")
-    .max(2000, "Keep it under 2000 characters."),
-});
-
-type TopicFormValues = z.infer<typeof topicFormSchema>;
 
 interface InputPanelProps {
   onSubmit: () => void;
 }
 
 export function InputPanel({ onSubmit }: InputPanelProps) {
+  const t = useTranslations("generate");
   const mode = useGenerationStore((s) => s.mode);
   const topic = useGenerationStore((s) => s.topic);
   const setTopic = useGenerationStore((s) => s.setTopic);
@@ -38,6 +30,11 @@ export function InputPanel({ onSubmit }: InputPanelProps) {
   const setTone = useGenerationStore((s) => s.setTone);
   const aspectRatio = useGenerationStore((s) => s.aspectRatio);
   const setAspectRatio = useGenerationStore((s) => s.setAspectRatio);
+
+  const topicFormSchema = z.object({
+    topic: z.string().trim().min(3, t("topicErrorMin")).max(2000, t("topicErrorMax")),
+  });
+  type TopicFormValues = z.infer<typeof topicFormSchema>;
 
   const {
     register,
@@ -74,12 +71,12 @@ export function InputPanel({ onSubmit }: InputPanelProps) {
         >
           <div>
             <label htmlFor="topic" className="mb-2 block text-sm font-medium text-text-secondary">
-              What&apos;s the video about?
+              {t("topicLabel")}
             </label>
             <textarea
               id="topic"
               rows={5}
-              placeholder="e.g. A barista discovers her coffee shop is haunted by a friendly ghost"
+              placeholder={t("topicPlaceholder")}
               {...register("topic", {
                 onChange: (e) => setTopic(e.target.value),
               })}
@@ -106,7 +103,7 @@ export function InputPanel({ onSubmit }: InputPanelProps) {
               as="button"
               className="group h-14 gap-2 rounded-pill bg-accent px-9 text-base font-semibold text-accent-foreground transition-colors duration-300 hover:bg-accent-hover"
             >
-              Generate Script
+              {t("generateButton")}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </MagneticButton>
           </div>
@@ -133,7 +130,7 @@ export function InputPanel({ onSubmit }: InputPanelProps) {
                 (canSubmitImage ? "hover:bg-accent-hover" : "pointer-events-none opacity-40")
               }
             >
-              Generate Script
+              {t("generateButton")}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </MagneticButton>
           </div>
@@ -158,18 +155,22 @@ function GeneratorControls({
   aspectRatio: ReturnType<typeof useGenerationStore.getState>["aspectRatio"];
   setAspectRatio: (v: ReturnType<typeof useGenerationStore.getState>["aspectRatio"]) => void;
 }) {
+  const t = useTranslations("generate");
+  const toneOptions = useToneOptions();
+  const aspectRatioOptions = useAspectRatioOptions();
+
   return (
     <div className="space-y-6 border-t border-border pt-8">
       <PillSelect
-        label="Duration"
+        label={t("durationLabel")}
         options={DURATION_OPTIONS}
         value={durationTarget}
         onChange={setDurationTarget}
       />
-      <PillSelect label="Tone" options={TONE_OPTIONS} value={tone} onChange={setTone} />
+      <PillSelect label={t("toneLabel")} options={toneOptions} value={tone} onChange={setTone} />
       <PillSelect
-        label="Aspect ratio"
-        options={ASPECT_RATIO_OPTIONS}
+        label={t("aspectRatioLabel")}
+        options={aspectRatioOptions}
         value={aspectRatio}
         onChange={setAspectRatio}
       />

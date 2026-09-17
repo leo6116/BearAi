@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import "./globals.css";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
@@ -15,37 +17,42 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const appName = process.env.NEXT_PUBLIC_APP_NAME || "BearAi";
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("meta");
 
-export const metadata: Metadata = {
-  title: `${appName} — AI Video Script & Prompt Generator`,
-  description:
-    "Go from a raw idea to shot-ready AI video generation prompts. BearAi writes the script, breaks it into scenes, and crafts cinematography-grade prompts for Runway, Kling, Luma, Sora, and more.",
-  metadataBase: new URL("https://bearai.app"),
-  openGraph: {
-    title: `${appName} — AI Video Script & Prompt Generator`,
-    description:
-      "From idea to shot-ready AI video prompts. Script, scenes, and cinematography-grade prompts — generated for you.",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${appName} — AI Video Script & Prompt Generator`,
-    description: "From idea to shot-ready AI video prompts.",
-  },
-};
+  return {
+    title: t("title"),
+    description: t("description"),
+    metadataBase: new URL("https://bearai.app"),
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+    },
+  };
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={`${poppins.variable} h-full`}>
+    <html lang={locale} className={`${poppins.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-bg-primary font-sans text-text-primary antialiased">
-        <SmoothScrollProvider>
-          <ScrollProgressBar />
-          <GrainOverlay />
-          <CustomCursor />
-          <PageTransition>{children}</PageTransition>
-          <ToastProvider />
-        </SmoothScrollProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <SmoothScrollProvider>
+            <ScrollProgressBar />
+            <GrainOverlay />
+            <CustomCursor />
+            <PageTransition>{children}</PageTransition>
+            <ToastProvider />
+          </SmoothScrollProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

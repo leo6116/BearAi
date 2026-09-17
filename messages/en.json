@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "title": "BearAi — AI Video Script & Prompt Generator",
+    "description": "Go from a raw idea to shot-ready AI video generation prompts. BearAi writes the script, breaks it into scenes, and crafts cinematography-grade prompts for Runway, Kling, Luma, Sora, and more."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "startGenerating": "Start Generating",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "AI Video Script & Prompt Generator",
+    "headlineLine1": ["From", "Idea", "to"],
+    "headlineLine2": ["Shot-Ready", "Prompts."],
+    "subheadline": "Give BearAi a topic or a reference image. It writes the script, breaks it into scenes, and crafts detailed, cinematography-grade prompts — ready to paste into Runway, Kling, Luma, Pika, Sora, or Veo.",
+    "cta": "Start Generating"
+  },
+  "howItWorks": {
+    "eyebrow": "How it works",
+    "heading": "Three steps between a blank page and a finished shot list.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Drop an idea",
+        "description": "Type a topic or upload a reference image. BearAi reads it and infers the creative direction."
+      },
+      {
+        "number": "02",
+        "title": "AI directs the shots",
+        "description": "A full script is written, broken into 3–5 second scenes, each staged with real cinematography."
+      },
+      {
+        "number": "03",
+        "title": "Copy & generate",
+        "description": "Every scene ships with a shot-ready prompt. Paste it straight into Runway, Kling, Luma, or Sora."
+      }
+    ]
+  },
+  "featureGrid": {
+    "eyebrow": "Why BearAi",
+    "heading": "Everything you need to go from idea to prompt, nothing you have to write by hand.",
+    "features": [
+      {
+        "title": "Screenwriting, automated",
+        "description": "A complete short-form storyline from a single topic or image — no blank page."
+      },
+      {
+        "title": "Real cinematography vocabulary",
+        "description": "Dolly shots, rack focus, golden hour — accurate terms, chosen for the action."
+      },
+      {
+        "title": "Image-to-idea",
+        "description": "Upload a reference image; BearAi infers the creative direction for you."
+      },
+      {
+        "title": "Scene-by-scene timeline",
+        "description": "Every clip is broken into 3–5 second scenes with exact timestamps."
+      },
+      {
+        "title": "Built for every AI video tool",
+        "description": "Prompts formatted for Runway, Kling, Luma, Pika, Sora, and Veo alike."
+      },
+      {
+        "title": "Regenerate a single scene",
+        "description": "Not happy with one beat? Re-roll just that scene, keep the rest intact."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Early feedback",
+    "heading": "Built with creators who were tired of writing prompts by hand.",
+    "items": [
+      {
+        "quote": "I went from a one-line idea to a full shot list in under a minute. The prompts just work in Runway.",
+        "name": "Mara T.",
+        "role": "Short-form creator"
+      },
+      {
+        "quote": "The camera terminology is the part that used to take me hours. BearAi bakes it into every prompt automatically.",
+        "name": "Jonas K.",
+        "role": "Freelance editor"
+      },
+      {
+        "quote": "Uploading a moodboard image and getting a full scene breakdown back is genuinely the fastest pre-pro I've ever done.",
+        "name": "Priya S.",
+        "role": "Ad creative director"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "heading": "Questions, answered.",
+    "items": [
+      {
+        "question": "Do I need to know how to write AI video prompts?",
+        "answer": "No. BearAi writes the entire script and every shot-level prompt for you, using accurate cinematography terminology. You only provide a topic or an image."
+      },
+      {
+        "question": "Which AI video tools do the prompts work with?",
+        "answer": "The prompts are written in dense, comma-separated cinematic style compatible with Runway, Kling, Luma, Pika, Sora, Veo, and most other text-to-video generators."
+      },
+      {
+        "question": "Can I use a reference image instead of typing an idea?",
+        "answer": "Yes. Switch to image mode, upload a reference photo, and BearAi analyzes it to infer a creative direction you can edit before generating."
+      },
+      {
+        "question": "Can I regenerate just one scene?",
+        "answer": "Yes. Every scene card has a Regenerate button that re-runs only that scene while keeping the rest of your timeline untouched."
+      },
+      {
+        "question": "How long can my video be?",
+        "answer": "Choose a target duration of 15, 30, 60, or 90 seconds — BearAi breaks it into the right number of 3–5 second scenes automatically."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "AI video script & prompt generator — from idea to shot-ready, instantly.",
+    "generate": "Generate",
+    "copyright": "© {year} {appName}. All rights reserved.",
+    "signoff": "Built for creators who'd rather direct than type prompts."
+  },
+  "about": {
+    "eyebrow": "About BearAi",
+    "title": "We built BearAi so you never have to write an AI video prompt by hand.",
+    "intro": "Writing a good AI video prompt means knowing screenwriting, shot composition, and cinematography vocabulary all at once. Most creators know what they want a clip to feel like — not the exact words a video model needs to hear. BearAi closes that gap.",
+    "pillars": [
+      {
+        "title": "Screenwriting, handled",
+        "description": "BearAi reads your topic — or a reference image — and writes a short-form script built for how people actually watch video today."
+      },
+      {
+        "title": "Real direction, not guesswork",
+        "description": "Every scene is staged with intentional camera movement, framing, angle, and lighting, drawn from a professional cinematography vocabulary."
+      },
+      {
+        "title": "One paste away from a clip",
+        "description": "Prompts are dense, self-contained, and formatted the way generators like Runway, Kling, Luma, Pika, Sora, and Veo expect them."
+      }
+    ],
+    "ctaHeading": "Bring an idea. Leave with a shot list.",
+    "ctaButton": "Start Generating"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Scene not found.",
+    "description": "This shot didn't make the final cut. The page you're looking for doesn't exist.",
+    "cta": "Back to the homepage"
+  },
+  "generate": {
+    "eyebrow": "Generator",
+    "title": "Tell BearAi what to shoot.",
+    "modeText": "Text idea",
+    "modeImage": "Reference image",
+    "topicLabel": "What's the video about?",
+    "topicPlaceholder": "e.g. A barista discovers her coffee shop is haunted by a friendly ghost",
+    "topicErrorMin": "Tell us a bit more — at least 3 characters.",
+    "topicErrorMax": "Keep it under 2000 characters.",
+    "durationLabel": "Duration",
+    "toneLabel": "Tone",
+    "aspectRatioLabel": "Aspect ratio",
+    "generateButton": "Generate Script",
+    "genericError": "Generation failed. Please try again."
+  },
+  "imageDropzone": {
+    "dropPrefix": "Drop an image, or",
+    "browse": "browse",
+    "hint": "JPG, PNG, or WEBP — up to 10MB",
+    "replace": "Replace",
+    "creativeDirectionLabel": "Creative direction",
+    "analyzingSuffix": "(analyzing image…)",
+    "analyzingText": "Reading the image…",
+    "resolvedPlaceholder": "The inferred creative direction will appear here — feel free to edit it.",
+    "altText": "Uploaded reference",
+    "errorInvalidType": "Please upload a JPG, PNG, or WEBP image.",
+    "errorTooLarge": "Image must be 10MB or smaller."
+  },
+  "loading": {
+    "writingScript": "Writing script…",
+    "breakingScenes": "Breaking down scenes…",
+    "directingShots": "Directing shots…",
+    "finalizing": "Finalizing prompts…"
+  },
+  "session": {
+    "missingTitle": "Session not found",
+    "missingHeading": "We couldn't find that shot list.",
+    "missingDescription": "This link may have expired, or it was opened in a different browser. Sessions are stored locally in the browser that generated them.",
+    "missingCta": "Start a new generation",
+    "regenerateSuccess": "Scene {number} regenerated",
+    "regenerateError": "Couldn't regenerate that scene. Please try again."
+  },
+  "timeline": {
+    "storySummaryLabel": "Story summary",
+    "totalDuration": "Total duration: {time} · {count, plural, one {# scene} other {# scenes}}",
+    "totalDurationLabel": "Total duration",
+    "scenePrefix": "Scene",
+    "copyAllPrompts": "Copy All Prompts",
+    "export": "Export"
+  },
+  "sceneCard": {
+    "copyPrompt": "Copy Prompt",
+    "copied": "Copied",
+    "regenerate": "Regenerate this scene",
+    "regenerating": "Regenerating…"
+  },
+  "exportMenu": {
+    "copyAsText": "Copy as plain text",
+    "copyAsJson": "Copy as JSON",
+    "downloadTxt": "Download as .txt",
+    "toastPlainText": "All prompts copied as plain text",
+    "toastJson": "Copied as JSON",
+    "toastDownload": "Downloaded bearai-shot-list.txt"
+  },
+  "copyButton": {
+    "toastCopied": "Copied to clipboard",
+    "toastError": "Couldn't copy — please copy manually."
+  },
+  "constants": {
+    "tone": {
+      "cinematic": { "label": "Cinematic", "description": "Film-grade, moody, dramatic" },
+      "documentary": { "label": "Documentary", "description": "Observational, authentic" },
+      "comedic": { "label": "Comedic", "description": "Bright, punchy, exaggerated" },
+      "commercial": { "label": "Commercial", "description": "Polished, ad-ready" },
+      "vlog": { "label": "Vlog", "description": "Casual, handheld, intimate" }
+    },
+    "aspectRatio": {
+      "9:16": { "label": "9:16", "description": "Vertical — Reels, TikTok, Shorts" },
+      "16:9": { "label": "16:9", "description": "Widescreen — YouTube, landscape" },
+      "1:1": { "label": "1:1", "description": "Square — feed posts" }
+    }
+  },
+  "languageToggle": {
+    "label": "Language"
+  }
+}

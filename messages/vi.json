@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "title": "BearAi — Trình Tạo Kịch Bản & Prompt Video AI",
+    "description": "Đi từ một ý tưởng đơn giản đến các prompt AI video sẵn sàng quay. BearAi viết kịch bản, chia thành từng cảnh, và tạo ra các prompt chuẩn điện ảnh cho Runway, Kling, Luma, Sora và nhiều công cụ khác."
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "startGenerating": "Bắt Đầu Tạo",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu"
+  },
+  "hero": {
+    "eyebrow": "Trình Tạo Kịch Bản & Prompt Video AI",
+    "headlineLine1": ["Từ", "Ý Tưởng", "Đến"],
+    "headlineLine2": ["Prompt", "Sẵn Sàng Quay."],
+    "subheadline": "Cho BearAi một chủ đề hoặc một ảnh tham khảo. BearAi sẽ viết kịch bản, chia thành từng cảnh, và tạo ra các prompt chi tiết, chuẩn điện ảnh — sẵn sàng dán vào Runway, Kling, Luma, Pika, Sora, hoặc Veo.",
+    "cta": "Bắt Đầu Tạo"
+  },
+  "howItWorks": {
+    "eyebrow": "Cách hoạt động",
+    "heading": "Ba bước từ trang trắng đến danh sách cảnh quay hoàn chỉnh.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Đưa ra ý tưởng",
+        "description": "Nhập một chủ đề hoặc tải lên ảnh tham khảo. BearAi sẽ đọc và suy luận ra định hướng sáng tạo."
+      },
+      {
+        "number": "02",
+        "title": "AI dàn dựng cảnh quay",
+        "description": "Một kịch bản hoàn chỉnh được viết ra, chia thành các cảnh 3–5 giây, mỗi cảnh được dàn dựng với kỹ thuật quay phim thực thụ."
+      },
+      {
+        "number": "03",
+        "title": "Sao chép & tạo video",
+        "description": "Mỗi cảnh đi kèm một prompt sẵn sàng sử dụng. Dán thẳng vào Runway, Kling, Luma, hoặc Sora."
+      }
+    ]
+  },
+  "featureGrid": {
+    "eyebrow": "Vì sao chọn BearAi",
+    "heading": "Mọi thứ bạn cần để đi từ ý tưởng đến prompt, không cần tự viết một chữ nào.",
+    "features": [
+      {
+        "title": "Viết kịch bản tự động",
+        "description": "Một câu chuyện ngắn hoàn chỉnh chỉ từ một chủ đề hoặc một tấm ảnh — không còn trang trắng."
+      },
+      {
+        "title": "Thuật ngữ điện ảnh chuẩn xác",
+        "description": "Dolly shot, rack focus, golden hour — đúng thuật ngữ, chọn đúng theo hành động."
+      },
+      {
+        "title": "Từ ảnh thành ý tưởng",
+        "description": "Tải lên một ảnh tham khảo; BearAi sẽ suy luận ra định hướng sáng tạo giúp bạn."
+      },
+      {
+        "title": "Dòng thời gian theo từng cảnh",
+        "description": "Mỗi đoạn clip được chia thành các cảnh 3–5 giây kèm mốc thời gian chính xác."
+      },
+      {
+        "title": "Tương thích mọi công cụ AI video",
+        "description": "Prompt được định dạng phù hợp với Runway, Kling, Luma, Pika, Sora, và Veo."
+      },
+      {
+        "title": "Tạo lại từng cảnh riêng lẻ",
+        "description": "Chưa ưng một cảnh? Tạo lại đúng cảnh đó, giữ nguyên phần còn lại."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Phản hồi ban đầu",
+    "heading": "Được xây dựng cùng những nhà sáng tạo đã quá mệt vì phải tự viết prompt.",
+    "items": [
+      {
+        "quote": "Tôi đi từ một ý tưởng vỏn vẹn một dòng đến cả danh sách cảnh quay hoàn chỉnh chỉ trong chưa đầy một phút. Prompt hoạt động ngay trên Runway.",
+        "name": "Mara T.",
+        "role": "Nhà sáng tạo nội dung ngắn"
+      },
+      {
+        "quote": "Thuật ngữ quay phim là phần trước đây tốn hàng giờ của tôi. BearAi tự động đưa nó vào từng prompt.",
+        "name": "Jonas K.",
+        "role": "Biên tập viên tự do"
+      },
+      {
+        "quote": "Tải lên một ảnh moodboard và nhận lại toàn bộ phần chia cảnh — đây thực sự là bước tiền kỳ nhanh nhất tôi từng làm.",
+        "name": "Priya S.",
+        "role": "Giám đốc sáng tạo quảng cáo"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Câu hỏi thường gặp",
+    "heading": "Giải đáp thắc mắc.",
+    "items": [
+      {
+        "question": "Tôi có cần biết cách viết prompt AI video không?",
+        "answer": "Không. BearAi viết toàn bộ kịch bản và từng prompt cho mỗi cảnh, sử dụng đúng thuật ngữ điện ảnh. Bạn chỉ cần cung cấp một chủ đề hoặc một tấm ảnh."
+      },
+      {
+        "question": "Prompt hoạt động với những công cụ AI video nào?",
+        "answer": "Prompt được viết theo phong cách điện ảnh, dày đặc thông tin, ngăn cách bằng dấu phẩy, tương thích với Runway, Kling, Luma, Pika, Sora, Veo và hầu hết các công cụ text-to-video khác."
+      },
+      {
+        "question": "Tôi có thể dùng ảnh tham khảo thay vì gõ ý tưởng không?",
+        "answer": "Có. Chuyển sang chế độ ảnh, tải lên một ảnh tham khảo, BearAi sẽ phân tích và suy ra định hướng sáng tạo mà bạn có thể chỉnh sửa trước khi tạo."
+      },
+      {
+        "question": "Tôi có thể tạo lại một cảnh riêng lẻ không?",
+        "answer": "Có. Mỗi thẻ cảnh đều có nút Tạo lại, chỉ tạo lại đúng cảnh đó và giữ nguyên toàn bộ dòng thời gian còn lại."
+      },
+      {
+        "question": "Video của tôi có thể dài bao lâu?",
+        "answer": "Chọn thời lượng mục tiêu 15, 30, 60 hoặc 90 giây — BearAi sẽ tự động chia thành đúng số lượng cảnh 3–5 giây phù hợp."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Công cụ tạo kịch bản & prompt video AI — từ ý tưởng đến sẵn sàng quay, ngay lập tức.",
+    "generate": "Tạo video",
+    "copyright": "© {year} {appName}. Đã đăng ký bản quyền.",
+    "signoff": "Dành cho những nhà sáng tạo thích đạo diễn hơn là gõ prompt."
+  },
+  "about": {
+    "eyebrow": "Về BearAi",
+    "title": "Chúng tôi tạo ra BearAi để bạn không bao giờ phải tự viết prompt AI video nữa.",
+    "intro": "Viết một prompt AI video tốt đòi hỏi phải biết cả biên kịch, bố cục khung hình, lẫn thuật ngữ điện ảnh cùng lúc. Hầu hết nhà sáng tạo biết họ muốn đoạn clip có cảm giác như thế nào — chứ không biết chính xác những từ ngữ mà mô hình video cần nghe. BearAi lấp đầy khoảng cách đó.",
+    "pillars": [
+      {
+        "title": "Biên kịch, đã có người lo",
+        "description": "BearAi đọc chủ đề của bạn — hoặc một ảnh tham khảo — và viết một kịch bản ngắn phù hợp với cách mọi người xem video ngày nay."
+      },
+      {
+        "title": "Chỉ đạo thật, không đoán mò",
+        "description": "Mỗi cảnh được dàn dựng có chủ đích về chuyển động máy quay, khung hình, góc máy và ánh sáng, dựa trên thuật ngữ điện ảnh chuyên nghiệp."
+      },
+      {
+        "title": "Chỉ cần dán là có clip",
+        "description": "Prompt dày đặc thông tin, độc lập, và được định dạng đúng theo cách mà Runway, Kling, Luma, Pika, Sora, và Veo mong đợi."
+      }
+    ],
+    "ctaHeading": "Mang theo một ý tưởng. Ra về với cả danh sách cảnh quay.",
+    "ctaButton": "Bắt Đầu Tạo"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Không tìm thấy cảnh quay.",
+    "description": "Cảnh này không có trong bản dựng cuối. Trang bạn đang tìm không tồn tại.",
+    "cta": "Về trang chủ"
+  },
+  "generate": {
+    "eyebrow": "Trình tạo",
+    "title": "Cho BearAi biết bạn muốn quay gì.",
+    "modeText": "Ý tưởng văn bản",
+    "modeImage": "Ảnh tham khảo",
+    "topicLabel": "Video này nói về điều gì?",
+    "topicPlaceholder": "vd: Một nhân viên pha cà phê phát hiện quán của mình bị một hồn ma thân thiện ám",
+    "topicErrorMin": "Hãy mô tả thêm một chút — tối thiểu 3 ký tự.",
+    "topicErrorMax": "Giữ dưới 2000 ký tự.",
+    "durationLabel": "Thời lượng",
+    "toneLabel": "Tông giọng",
+    "aspectRatioLabel": "Tỷ lệ khung hình",
+    "generateButton": "Tạo Kịch Bản",
+    "genericError": "Tạo nội dung thất bại. Vui lòng thử lại."
+  },
+  "imageDropzone": {
+    "dropPrefix": "Kéo thả một ảnh vào đây, hoặc",
+    "browse": "chọn ảnh",
+    "hint": "JPG, PNG, hoặc WEBP — tối đa 10MB",
+    "replace": "Thay ảnh khác",
+    "creativeDirectionLabel": "Định hướng sáng tạo",
+    "analyzingSuffix": "(đang phân tích ảnh…)",
+    "analyzingText": "Đang đọc ảnh…",
+    "resolvedPlaceholder": "Định hướng sáng tạo được suy luận sẽ hiện ở đây — bạn có thể chỉnh sửa thoải mái.",
+    "altText": "Ảnh đã tải lên",
+    "errorInvalidType": "Vui lòng tải lên ảnh định dạng JPG, PNG, hoặc WEBP.",
+    "errorTooLarge": "Ảnh phải nhỏ hơn hoặc bằng 10MB."
+  },
+  "loading": {
+    "writingScript": "Đang viết kịch bản…",
+    "breakingScenes": "Đang chia cảnh…",
+    "directingShots": "Đang dàn dựng cảnh quay…",
+    "finalizing": "Đang hoàn thiện prompt…"
+  },
+  "session": {
+    "missingTitle": "Không tìm thấy phiên",
+    "missingHeading": "Chúng tôi không tìm thấy danh sách cảnh quay đó.",
+    "missingDescription": "Liên kết này có thể đã hết hạn, hoặc được mở trên một trình duyệt khác. Các phiên được lưu cục bộ trên trình duyệt đã tạo ra chúng.",
+    "missingCta": "Bắt đầu tạo mới",
+    "regenerateSuccess": "Đã tạo lại cảnh {number}",
+    "regenerateError": "Không thể tạo lại cảnh này. Vui lòng thử lại."
+  },
+  "timeline": {
+    "storySummaryLabel": "Tóm tắt câu chuyện",
+    "totalDuration": "Tổng thời lượng: {time} · {count, plural, other {# cảnh}}",
+    "totalDurationLabel": "Tổng thời lượng",
+    "scenePrefix": "Cảnh",
+    "copyAllPrompts": "Sao Chép Tất Cả Prompt",
+    "export": "Xuất File"
+  },
+  "sceneCard": {
+    "copyPrompt": "Sao Chép Prompt",
+    "copied": "Đã sao chép",
+    "regenerate": "Tạo lại cảnh này",
+    "regenerating": "Đang tạo lại…"
+  },
+  "exportMenu": {
+    "copyAsText": "Sao chép dạng văn bản thuần",
+    "copyAsJson": "Sao chép dạng JSON",
+    "downloadTxt": "Tải về file .txt",
+    "toastPlainText": "Đã sao chép toàn bộ prompt dạng văn bản",
+    "toastJson": "Đã sao chép dạng JSON",
+    "toastDownload": "Đã tải về bearai-shot-list.txt"
+  },
+  "copyButton": {
+    "toastCopied": "Đã sao chép vào bộ nhớ tạm",
+    "toastError": "Không thể sao chép — vui lòng sao chép thủ công."
+  },
+  "constants": {
+    "tone": {
+      "cinematic": { "label": "Điện ảnh", "description": "Chất lượng phim, u tối, kịch tính" },
+      "documentary": { "label": "Tài liệu", "description": "Quan sát, chân thực" },
+      "comedic": { "label": "Hài hước", "description": "Tươi sáng, dí dỏm, phóng đại" },
+      "commercial": { "label": "Quảng cáo", "description": "Bóng bẩy, sẵn sàng lên sóng" },
+      "vlog": { "label": "Vlog", "description": "Đời thường, cầm tay, gần gũi" }
+    },
+    "aspectRatio": {
+      "9:16": { "label": "9:16", "description": "Dọc — Reels, TikTok, Shorts" },
+      "16:9": { "label": "16:9", "description": "Ngang — YouTube, phong cảnh" },
+      "1:1": { "label": "1:1", "description": "Vuông — bài đăng feed" }
+    }
+  },
+  "languageToggle": {
+    "label": "Ngôn ngữ"
+  }
+}

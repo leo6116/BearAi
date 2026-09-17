@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Loader2, RefreshCw } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { CopyButton } from "@/components/generator/CopyButton";
@@ -14,6 +15,8 @@ interface SceneCardProps {
 }
 
 export function SceneCard({ scene, isRegenerating, onRegenerate }: SceneCardProps) {
+  const t = useTranslations("sceneCard");
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 32 }}
@@ -56,7 +59,7 @@ export function SceneCard({ scene, isRegenerating, onRegenerate }: SceneCardProp
           ) : (
             <RefreshCw className="h-4 w-4" />
           )}
-          {isRegenerating ? "Regenerating…" : "Regenerate this scene"}
+          {isRegenerating ? t("regenerating") : t("regenerate")}
         </button>
       </div>
 

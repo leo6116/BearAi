@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Check, Copy } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -11,17 +12,19 @@ interface CopyButtonProps {
   className?: string;
 }
 
-export function CopyButton({ text, label = "Copy Prompt", className }: CopyButtonProps) {
+export function CopyButton({ text, label, className }: CopyButtonProps) {
+  const t = useTranslations("sceneCard");
+  const tCopy = useTranslations("copyButton");
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
-      toast.success("Copied to clipboard");
+      toast.success(tCopy("toastCopied"));
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
-      toast.error("Couldn't copy — please copy manually.");
+      toast.error(tCopy("toastError"));
     }
   }
 
@@ -38,7 +41,7 @@ export function CopyButton({ text, label = "Copy Prompt", className }: CopyButto
       )}
     >
       {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-      {copied ? "Copied" : label}
+      {copied ? t("copied") : (label ?? t("copyPrompt"))}
     </button>
   );
 }

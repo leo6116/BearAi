@@ -1,18 +1,5 @@
+import { useTranslations } from "next-intl";
 import type { AspectRatioConfig, DurationTargetConfig, ToneOptionConfig } from "@/types";
-
-export const TONE_OPTIONS: ToneOptionConfig[] = [
-  { value: "cinematic", label: "Cinematic", description: "Film-grade, moody, dramatic" },
-  { value: "documentary", label: "Documentary", description: "Observational, authentic" },
-  { value: "comedic", label: "Comedic", description: "Bright, punchy, exaggerated" },
-  { value: "commercial", label: "Commercial", description: "Polished, ad-ready" },
-  { value: "vlog", label: "Vlog", description: "Casual, handheld, intimate" },
-];
-
-export const ASPECT_RATIO_OPTIONS: AspectRatioConfig[] = [
-  { value: "9:16", label: "9:16", description: "Vertical — Reels, TikTok, Shorts" },
-  { value: "16:9", label: "16:9", description: "Widescreen — YouTube, landscape" },
-  { value: "1:1", label: "1:1", description: "Square — feed posts" },
-];
 
 export const DURATION_OPTIONS: DurationTargetConfig[] = [
   { value: 15, label: "15s" },
@@ -20,3 +7,24 @@ export const DURATION_OPTIONS: DurationTargetConfig[] = [
   { value: 60, label: "60s" },
   { value: 90, label: "90s" },
 ];
+
+const TONE_VALUES = ["cinematic", "documentary", "comedic", "commercial", "vlog"] as const;
+const ASPECT_RATIO_VALUES = ["9:16", "16:9", "1:1"] as const;
+
+export function useToneOptions(): ToneOptionConfig[] {
+  const t = useTranslations("constants.tone");
+  return TONE_VALUES.map((value) => ({
+    value,
+    label: t(`${value}.label`),
+    description: t(`${value}.description`),
+  }));
+}
+
+export function useAspectRatioOptions(): AspectRatioConfig[] {
+  const t = useTranslations("constants.aspectRatio");
+  return ASPECT_RATIO_VALUES.map((value) => ({
+    value,
+    label: t(`${value}.label`),
+    description: t(`${value}.description`),
+  }));
+}

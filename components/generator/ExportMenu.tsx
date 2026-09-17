@@ -1,23 +1,30 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { ChevronDown, Download, FileJson, FileText } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import type { GenerationResult } from "@/types";
 
-function buildPlainText(result: GenerationResult): string {
-  const header = `${result.storySummary}\n\nTotal duration: ${result.totalDurationSeconds}s\n`;
+function buildPlainText(
+  result: GenerationResult,
+  scenePrefix: string,
+  totalDurationLabel: string,
+): string {
+  const header = `${result.storySummary}\n\n${totalDurationLabel}: ${result.totalDurationSeconds}s\n`;
   const scenes = result.scenes
     .map(
       (s) =>
-        `— Scene ${s.sceneNumber} (${s.startTime}s–${s.endTime}s, ${s.durationSeconds}s) —\n${s.sceneDescription}\n\n${s.visualPrompt}`,
+        `— ${scenePrefix} ${s.sceneNumber} (${s.startTime}s–${s.endTime}s, ${s.durationSeconds}s) —\n${s.sceneDescription}\n\n${s.visualPrompt}`,
     )
     .join("\n\n" + "=".repeat(48) + "\n\n");
   return `${header}\n${"=".repeat(48)}\n\n${scenes}`;
 }
 
 export function ExportMenu({ result }: { result: GenerationResult }) {
+  const t = useTranslations("exportMenu");
+  const tTimeline = useTranslations("timeline");
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -30,19 +37,24 @@ export function ExportMenu({ result }: { result: GenerationResult }) {
   }, []);
 
   async function copyPlainText() {
-    await navigator.clipboard.writeText(buildPlainText(result));
-    toast.success("All prompts copied as plain text");
+    await navigator.clipboard.writeText(
+      buildPlainText(result, tTimeline("scenePrefix"), tTimeline("totalDurationLabel")),
+    );
+    toast.success(t("toastPlainText"));
     setOpen(false);
   }
 
   async function copyJson() {
     await navigator.clipboard.writeText(JSON.stringify(result, null, 2));
-    toast.success("Copied as JSON");
+    toast.success(t("toastJson"));
     setOpen(false);
   }
 
   function downloadTxt() {
-    const blob = new Blob([buildPlainText(result)], { type: "text/plain;charset=utf-8" });
+    const blob = new Blob(
+      [buildPlainText(result, tTimeline("scenePrefix"), tTimeline("totalDurationLabel"))],
+      { type: "text/plain;charset=utf-8" },
+    );
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -51,7 +63,7 @@ export function ExportMenu({ result }: { result: GenerationResult }) {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    toast.success("Downloaded bearai-shot-list.txt");
+    toast.success(t("toastDownload"));
     setOpen(false);
   }
 
@@ -65,7 +77,7 @@ export function ExportMenu({ result }: { result: GenerationResult }) {
         aria-haspopup="menu"
         className="inline-flex items-center gap-2 rounded-pill border border-border bg-bg-tertiary px-4 py-2.5 text-sm font-medium text-text-primary transition-colors duration-300 hover:border-accent hover:text-accent"
       >
-        Export
+        {tTimeline("export")}
         <ChevronDown
           className={cn("h-4 w-4 transition-transform duration-300", open && "rotate-180")}
         />
@@ -76,9 +88,9 @@ export function ExportMenu({ result }: { result: GenerationResult }) {
           role="menu"
           className="absolute right-0 z-20 mt-2 w-64 overflow-hidden rounded-md border border-border bg-bg-secondary shadow-xl"
         >
-          <MenuItem icon={FileText} label="Copy as plain text" onClick={copyPlainText} />
-          <MenuItem icon={FileJson} label="Copy as JSON" onClick={copyJson} />
-          <MenuItem icon={Download} label="Download as .txt" onClick={downloadTxt} />
+          <MenuItem icon={FileText} label={t("copyAsText")} onClick={copyPlainText} />
+          <MenuItem icon={FileJson} label={t("copyAsJson")} onClick={copyJson} />
+          <MenuItem icon={Download} label={t("downloadTxt")} onClick={downloadTxt} />
         </div>
       )}
     </div>

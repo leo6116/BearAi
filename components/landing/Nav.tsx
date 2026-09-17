@@ -3,21 +3,24 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
 
 const appName = process.env.NEXT_PUBLIC_APP_NAME || "BearAi";
 
-const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-];
-
 export function Nav() {
   const pathname = usePathname();
+  const t = useTranslations("nav");
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const LINKS = [
+    { href: "/", label: t("home") },
+    { href: "/about", label: t("about") },
+  ];
 
   return (
     <header className="bg-bg-primary/80 sticky top-0 z-40 border-b border-border backdrop-blur">
@@ -48,14 +51,15 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <LanguageToggle />
           <Link href="/generate" className="hidden sm:block">
-            <Button size="sm">Start Generating</Button>
+            <Button size="sm">{t("startGenerating")}</Button>
           </Link>
           <button
             type="button"
             data-cursor-hover
             aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
             onClick={() => setMobileOpen((v) => !v)}
             className="flex h-10 w-10 items-center justify-center rounded-pill border border-border text-text-primary md:hidden"
           >
@@ -96,7 +100,7 @@ export function Nav() {
                 className="mt-2 sm:hidden"
               >
                 <Button size="sm" className="w-full">
-                  Start Generating
+                  {t("startGenerating")}
                 </Button>
               </Link>
             </div>

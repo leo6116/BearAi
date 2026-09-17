@@ -1,59 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Camera, ImageIcon, Layers, ListVideo, Sparkles, Timer } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const FEATURES = [
-  {
-    icon: Sparkles,
-    title: "Screenwriting, automated",
-    description: "A complete short-form storyline from a single topic or image — no blank page.",
-    span: "md:col-span-7",
-  },
-  {
-    icon: Camera,
-    title: "Real cinematography vocabulary",
-    description: "Dolly shots, rack focus, golden hour — accurate terms, chosen for the action.",
-    span: "md:col-span-5",
-  },
-  {
-    icon: ImageIcon,
-    title: "Image-to-idea",
-    description: "Upload a reference image; BearAi infers the creative direction for you.",
-    span: "md:col-span-5",
-  },
-  {
-    icon: ListVideo,
-    title: "Scene-by-scene timeline",
-    description: "Every clip is broken into 3–5 second scenes with exact timestamps.",
-    span: "md:col-span-4",
-  },
-  {
-    icon: Layers,
-    title: "Built for every AI video tool",
-    description: "Prompts formatted for Runway, Kling, Luma, Pika, Sora, and Veo alike.",
-    span: "md:col-span-3",
-  },
-  {
-    icon: Timer,
-    title: "Regenerate a single scene",
-    description: "Not happy with one beat? Re-roll just that scene, keep the rest intact.",
-    span: "md:col-span-12",
-  },
+const FEATURE_META = [
+  { icon: Sparkles, span: "md:col-span-7" },
+  { icon: Camera, span: "md:col-span-5" },
+  { icon: ImageIcon, span: "md:col-span-5" },
+  { icon: ListVideo, span: "md:col-span-4" },
+  { icon: Layers, span: "md:col-span-3" },
+  { icon: Timer, span: "md:col-span-12" },
 ];
 
+interface FeatureMessage {
+  title: string;
+  description: string;
+}
+
 export function FeatureGrid() {
+  const t = useTranslations("featureGrid");
+  const features = t.raw("features") as FeatureMessage[];
+
   return (
     <section className="border-b border-border px-6 py-28 md:px-20 md:py-40">
-      <p className="eyebrow mb-4">Why BearAi</p>
+      <p className="eyebrow mb-4">{t("eyebrow")}</p>
       <h2 className="mb-16 max-w-2xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold leading-tight text-text-primary md:mb-20">
-        Everything you need to go from idea to prompt, nothing you have to write by hand.
+        {t("heading")}
       </h2>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-        {FEATURES.map((feature, i) => {
-          const Icon = feature.icon;
+        {features.map((feature, i) => {
+          const { icon: Icon, span } = FEATURE_META[i];
           return (
             <motion.div
               key={feature.title}
@@ -63,7 +42,7 @@ export function FeatureGrid() {
               transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className={cn(
                 "hover:border-accent/50 group rounded-lg border border-border bg-bg-secondary p-8 transition-colors duration-300",
-                feature.span,
+                span,
               )}
             >
               <Icon className="mb-6 h-8 w-8 text-accent" strokeWidth={1.5} />
