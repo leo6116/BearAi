@@ -56,9 +56,7 @@ export async function requestImageAnalysis(imageBase64: string): Promise<string>
   return data.resolvedTopic as string;
 }
 
-export async function requestSceneRegeneration(
-  payload: RegenerateSceneRequest,
-): Promise<Scene> {
+export async function requestSceneRegeneration(payload: RegenerateSceneRequest): Promise<Scene> {
   const response = await fetch("/api/generate/scene", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

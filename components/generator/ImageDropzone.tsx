@@ -66,7 +66,7 @@ export function ImageDropzone() {
               setImage(null, null);
               if (inputRef.current) inputRef.current.value = "";
             }}
-            className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-pill bg-bg-primary/80 px-3 py-1.5 text-xs font-medium text-text-primary backdrop-blur hover:bg-bg-primary"
+            className="bg-bg-primary/80 absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-pill px-3 py-1.5 text-xs font-medium text-text-primary backdrop-blur hover:bg-bg-primary"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             Replace
@@ -74,7 +74,10 @@ export function ImageDropzone() {
         </div>
 
         <div>
-          <label htmlFor="resolved-topic" className="mb-2 block text-sm font-medium text-text-secondary">
+          <label
+            htmlFor="resolved-topic"
+            className="mb-2 block text-sm font-medium text-text-secondary"
+          >
             Creative direction {isAnalyzingImage && "(analyzing image…)"}
           </label>
           {isAnalyzingImage ? (
@@ -89,7 +92,7 @@ export function ImageDropzone() {
               onChange={(e) => setResolvedImageTopic(e.target.value)}
               rows={4}
               placeholder="The inferred creative direction will appear here — feel free to edit it."
-              className="w-full resize-none rounded-md border border-border bg-bg-tertiary px-4 py-3 text-sm leading-relaxed text-text-primary placeholder:text-text-secondary/60 focus-visible:border-accent"
+              className="placeholder:text-text-secondary/60 w-full resize-none rounded-md border border-border bg-bg-tertiary px-4 py-3 text-sm leading-relaxed text-text-primary focus-visible:border-accent"
             />
           )}
           {imageAnalysisError && (

@@ -39,7 +39,7 @@ export default function GeneratePage() {
     const sessionId = generateSessionId();
     const request: GenerationRequest = {
       mode: "text",
-      topic: mode === "text" ? topic : resolvedImageTopic ?? "",
+      topic: mode === "text" ? topic : (resolvedImageTopic ?? ""),
       durationTarget,
       tone,
       aspectRatio,

@@ -62,7 +62,7 @@ export function FeatureGrid() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className={cn(
-                "group rounded-lg border border-border bg-bg-secondary p-8 transition-colors duration-300 hover:border-accent/50",
+                "hover:border-accent/50 group rounded-lg border border-border bg-bg-secondary p-8 transition-colors duration-300",
                 feature.span,
               )}
             >

@@ -12,7 +12,8 @@ export default function NotFound() {
           Scene not found.
         </h1>
         <p className="mx-auto mb-10 max-w-md text-lg text-text-secondary">
-          This shot didn&apos;t make the final cut. The page you&apos;re looking for doesn&apos;t exist.
+          This shot didn&apos;t make the final cut. The page you&apos;re looking for doesn&apos;t
+          exist.
         </p>
         <Link href="/">
           <Button size="lg">Back to the homepage</Button>

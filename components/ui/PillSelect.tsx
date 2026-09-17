@@ -38,7 +38,7 @@ export function PillSelect<T extends string | number>({
                 "rounded-pill border px-4 py-2 text-sm font-medium transition-colors duration-300",
                 active
                   ? "border-accent bg-accent text-accent-foreground"
-                  : "border-border bg-bg-tertiary text-text-secondary hover:border-accent/50 hover:text-text-primary",
+                  : "hover:border-accent/50 border-border bg-bg-tertiary text-text-secondary hover:text-text-primary",
               )}
             >
               {option.label}

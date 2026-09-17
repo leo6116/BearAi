@@ -12,7 +12,12 @@ const STEPS: { key: GenerationStep; label: string; icon: typeof PenLine }[] = [
   { key: "finalizing", label: "Finalizing prompts…", icon: Sparkles },
 ];
 
-const ORDER: GenerationStep[] = ["writing-script", "breaking-scenes", "directing-shots", "finalizing"];
+const ORDER: GenerationStep[] = [
+  "writing-script",
+  "breaking-scenes",
+  "directing-shots",
+  "finalizing",
+];
 
 export function LoadingSequence({ step }: { step: GenerationStep }) {
   const currentIndex = ORDER.indexOf(step);
@@ -23,7 +28,7 @@ export function LoadingSequence({ step }: { step: GenerationStep }) {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 rounded-full border-2 border-dashed border-accent/40"
+          className="border-accent/40 absolute inset-0 rounded-full border-2 border-dashed"
         />
         <div className="absolute inset-3 flex items-center justify-center rounded-full bg-accent">
           <motion.div

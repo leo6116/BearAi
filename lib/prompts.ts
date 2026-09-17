@@ -26,9 +26,12 @@ export const IMAGE_TOPIC_EXTRACTION_SYSTEM_PROMPT = `You are an expert creative 
 
 const TONE_STYLE_SUFFIX: Record<ToneOption, string> = {
   cinematic: "cinematic, shot on 35mm film, shallow depth of field, color graded",
-  documentary: "documentary style, observational, natural light, handheld authenticity, realistic color grade",
-  comedic: "bright and punchy, exaggerated comedic timing, high-key lighting, vivid saturated colors",
-  commercial: "polished advertising look, glossy, high production value, crisp studio-grade lighting, vibrant color grade",
+  documentary:
+    "documentary style, observational, natural light, handheld authenticity, realistic color grade",
+  comedic:
+    "bright and punchy, exaggerated comedic timing, high-key lighting, vivid saturated colors",
+  commercial:
+    "polished advertising look, glossy, high production value, crisp studio-grade lighting, vibrant color grade",
   vlog: "casual vlog style, handheld intimacy, natural light, authentic and unpolished, warm color tones",
 };
 

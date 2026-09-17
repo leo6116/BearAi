@@ -61,7 +61,10 @@ export function SceneCard({ scene, isRegenerating, onRegenerate }: SceneCardProp
       </div>
 
       {isRegenerating && (
-        <div className="absolute inset-0 rounded-lg bg-bg-primary/40 backdrop-blur-[1px]" aria-hidden="true" />
+        <div
+          className="bg-bg-primary/40 absolute inset-0 rounded-lg backdrop-blur-[1px]"
+          aria-hidden="true"
+        />
       )}
     </motion.article>
   );

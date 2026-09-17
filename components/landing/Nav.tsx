@@ -20,9 +20,13 @@ export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg-primary/80 backdrop-blur">
+    <header className="bg-bg-primary/80 sticky top-0 z-40 border-b border-border backdrop-blur">
       <div className="mx-auto flex max-w-content items-center justify-between px-6 py-5 md:px-20">
-        <Link href="/" data-cursor-hover className="text-xl font-black tracking-tightest text-text-primary">
+        <Link
+          href="/"
+          data-cursor-hover
+          className="text-xl font-black tracking-tightest text-text-primary"
+        >
           {appName}
           <span className="text-accent">.</span>
         </Link>
@@ -86,7 +90,11 @@ export function Nav() {
                   {link.label}
                 </Link>
               ))}
-              <Link href="/generate" onClick={() => setMobileOpen(false)} className="mt-2 sm:hidden">
+              <Link
+                href="/generate"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 sm:hidden"
+              >
                 <Button size="sm" className="w-full">
                   Start Generating
                 </Button>

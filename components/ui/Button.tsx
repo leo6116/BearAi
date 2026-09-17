@@ -35,7 +35,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         data-cursor-hover
         className={cn(
-          "inline-flex items-center justify-center rounded-pill font-semibold transition-all duration-300 ease-out-expo disabled:opacity-40 disabled:pointer-events-none whitespace-nowrap",
+          "inline-flex items-center justify-center whitespace-nowrap rounded-pill font-semibold transition-all duration-300 ease-out-expo disabled:pointer-events-none disabled:opacity-40",
           variantClasses[variant],
           sizeClasses[size],
           className,

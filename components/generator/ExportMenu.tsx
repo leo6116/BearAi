@@ -66,7 +66,9 @@ export function ExportMenu({ result }: { result: GenerationResult }) {
         className="inline-flex items-center gap-2 rounded-pill border border-border bg-bg-tertiary px-4 py-2.5 text-sm font-medium text-text-primary transition-colors duration-300 hover:border-accent hover:text-accent"
       >
         Export
-        <ChevronDown className={cn("h-4 w-4 transition-transform duration-300", open && "rotate-180")} />
+        <ChevronDown
+          className={cn("h-4 w-4 transition-transform duration-300", open && "rotate-180")}
+        />
       </button>
 
       {open && (

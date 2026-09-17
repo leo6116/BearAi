@@ -61,7 +61,7 @@ export function Hero() {
       <div
         ref={parallaxRef}
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 top-24 h-[420px] w-[420px] rounded-full bg-accent/10 blur-[120px] md:h-[600px] md:w-[600px]"
+        className="bg-accent/10 pointer-events-none absolute -right-32 top-24 h-[420px] w-[420px] rounded-full blur-[120px] md:h-[600px] md:w-[600px]"
       />
 
       <motion.p
@@ -93,7 +93,9 @@ export function Hero() {
             <span key={i} className="mr-[0.25em] inline-block overflow-hidden align-bottom">
               <motion.span
                 variants={word}
-                className={i === HEADLINE_LINE_2.length - 1 ? "inline-block text-accent" : "inline-block"}
+                className={
+                  i === HEADLINE_LINE_2.length - 1 ? "inline-block text-accent" : "inline-block"
+                }
               >
                 {w}
               </motion.span>
@@ -109,9 +111,9 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.7 }}
           className="max-w-md text-base leading-relaxed text-text-secondary md:text-lg"
         >
-          Give BearAi a topic or a reference image. It writes the script, breaks it into
-          scenes, and crafts detailed, cinematography-grade prompts — ready to paste into
-          Runway, Kling, Luma, Pika, Sora, or Veo.
+          Give BearAi a topic or a reference image. It writes the script, breaks it into scenes, and
+          crafts detailed, cinematography-grade prompts — ready to paste into Runway, Kling, Luma,
+          Pika, Sora, or Veo.
         </motion.p>
 
         <motion.div
@@ -122,7 +124,7 @@ export function Hero() {
           <Link href="/generate">
             <MagneticButton className="group h-16 gap-3 rounded-pill bg-accent px-9 text-lg font-semibold text-accent-foreground transition-colors duration-300 hover:bg-accent-hover">
               Start Generating
-              <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </MagneticButton>
           </Link>
         </motion.div>

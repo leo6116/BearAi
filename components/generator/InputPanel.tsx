@@ -49,7 +49,11 @@ export function InputPanel({ onSubmit }: InputPanelProps) {
     values: { topic },
   });
 
-  const canSubmitImage = mode === "image" && Boolean(imageBase64) && Boolean(resolvedImageTopic?.trim()) && !isAnalyzingImage;
+  const canSubmitImage =
+    mode === "image" &&
+    Boolean(imageBase64) &&
+    Boolean(resolvedImageTopic?.trim()) &&
+    !isAnalyzingImage;
 
   function submitText() {
     onSubmit();
@@ -79,7 +83,7 @@ export function InputPanel({ onSubmit }: InputPanelProps) {
               {...register("topic", {
                 onChange: (e) => setTopic(e.target.value),
               })}
-              className="w-full resize-none rounded-md border border-border bg-bg-tertiary px-4 py-3 text-base leading-relaxed text-text-primary placeholder:text-text-secondary/60 focus-visible:border-accent"
+              className="placeholder:text-text-secondary/60 w-full resize-none rounded-md border border-border bg-bg-tertiary px-4 py-3 text-base leading-relaxed text-text-primary focus-visible:border-accent"
             />
             {errors.topic && (
               <p className="mt-2 text-sm text-red-400" role="alert">
@@ -126,9 +130,7 @@ export function InputPanel({ onSubmit }: InputPanelProps) {
               onClick={() => canSubmitImage && submitText()}
               className={
                 "group h-14 gap-2 rounded-pill bg-accent px-9 text-base font-semibold text-accent-foreground transition-colors duration-300 " +
-                (canSubmitImage
-                  ? "hover:bg-accent-hover"
-                  : "pointer-events-none opacity-40")
+                (canSubmitImage ? "hover:bg-accent-hover" : "pointer-events-none opacity-40")
               }
             >
               Generate Script
@@ -158,9 +160,19 @@ function GeneratorControls({
 }) {
   return (
     <div className="space-y-6 border-t border-border pt-8">
-      <PillSelect label="Duration" options={DURATION_OPTIONS} value={durationTarget} onChange={setDurationTarget} />
+      <PillSelect
+        label="Duration"
+        options={DURATION_OPTIONS}
+        value={durationTarget}
+        onChange={setDurationTarget}
+      />
       <PillSelect label="Tone" options={TONE_OPTIONS} value={tone} onChange={setTone} />
-      <PillSelect label="Aspect ratio" options={ASPECT_RATIO_OPTIONS} value={aspectRatio} onChange={setAspectRatio} />
+      <PillSelect
+        label="Aspect ratio"
+        options={ASPECT_RATIO_OPTIONS}
+        value={aspectRatio}
+        onChange={setAspectRatio}
+      />
     </div>
   );
 }

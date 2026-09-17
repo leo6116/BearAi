@@ -136,7 +136,8 @@ export const useGenerationStore = create<GenerationState>((set, get) => ({
       return result;
     } catch (err) {
       clearInterval(stepInterval);
-      const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      const message =
+        err instanceof Error ? err.message : "Something went wrong. Please try again.";
       set({ step: "error", error: message });
       return null;
     }

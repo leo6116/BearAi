@@ -43,8 +43,8 @@ export default function AboutPage() {
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-text-secondary">
             Writing a good AI video prompt means knowing screenwriting, shot composition, and
-            cinematography vocabulary all at once. Most creators know what they want a clip to
-            feel like — not the exact words a video model needs to hear. BearAi closes that gap.
+            cinematography vocabulary all at once. Most creators know what they want a clip to feel
+            like — not the exact words a video model needs to hear. BearAi closes that gap.
           </p>
         </section>
 
@@ -53,7 +53,10 @@ export default function AboutPage() {
             {PILLARS.map((pillar) => {
               const Icon = pillar.icon;
               return (
-                <div key={pillar.title} className="rounded-lg border border-border bg-bg-secondary p-8">
+                <div
+                  key={pillar.title}
+                  className="rounded-lg border border-border bg-bg-secondary p-8"
+                >
                   <Icon className="mb-6 h-8 w-8 text-accent" strokeWidth={1.5} />
                   <h2 className="mb-3 text-xl font-semibold text-text-primary">{pillar.title}</h2>
                   <p className="text-base leading-relaxed text-text-secondary">

@@ -22,7 +22,7 @@ export function Marquee() {
         {[...ITEMS, ...ITEMS].map((item, i) => (
           <span
             key={i}
-            className="mx-6 flex items-center gap-6 text-2xl font-bold tracking-tight text-text-secondary/70 md:text-3xl"
+            className="text-text-secondary/70 mx-6 flex items-center gap-6 text-2xl font-bold tracking-tight md:text-3xl"
           >
             {item}
             <span aria-hidden="true" className="text-accent">

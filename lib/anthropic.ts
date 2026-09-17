@@ -56,21 +56,25 @@ export interface StructuredCompletionParams {
  * calling, never freeform text + regex parsing. Returns the raw parsed
  * object (unvalidated) — callers run it through the matching zod schema.
  */
-export async function generateStructured(
-  params: StructuredCompletionParams,
-): Promise<unknown> {
+export async function generateStructured(params: StructuredCompletionParams): Promise<unknown> {
   if (AI_PROVIDER === "openai") {
     return generateStructuredOpenAI(params);
   }
   return generateStructuredAnthropic(params);
 }
 
-async function generateStructuredAnthropic(
-  params: StructuredCompletionParams,
-): Promise<unknown> {
+async function generateStructuredAnthropic(params: StructuredCompletionParams): Promise<unknown> {
   const client = getAnthropicClient();
-  const { systemPrompt, userPrompt, toolName, toolDescription, schema, imageBase64, imageMediaType, maxTokens } =
-    params;
+  const {
+    systemPrompt,
+    userPrompt,
+    toolName,
+    toolDescription,
+    schema,
+    imageBase64,
+    imageMediaType,
+    maxTokens,
+  } = params;
 
   const content: Anthropic.MessageParam["content"] = imageBase64
     ? [
@@ -79,10 +83,7 @@ async function generateStructuredAnthropic(
           source: {
             type: "base64",
             media_type: (imageMediaType || "image/jpeg") as
-              | "image/jpeg"
-              | "image/png"
-              | "image/webp"
-              | "image/gif",
+              "image/jpeg" | "image/png" | "image/webp" | "image/gif",
             data: imageBase64,
           },
         },
@@ -116,12 +117,18 @@ async function generateStructuredAnthropic(
   return toolUseBlock.input;
 }
 
-async function generateStructuredOpenAI(
-  params: StructuredCompletionParams,
-): Promise<unknown> {
+async function generateStructuredOpenAI(params: StructuredCompletionParams): Promise<unknown> {
   const client = getOpenAIClient();
-  const { systemPrompt, userPrompt, toolName, toolDescription, schema, imageBase64, imageMediaType, maxTokens } =
-    params;
+  const {
+    systemPrompt,
+    userPrompt,
+    toolName,
+    toolDescription,
+    schema,
+    imageBase64,
+    imageMediaType,
+    maxTokens,
+  } = params;
 
   const userContent: OpenAI.Chat.Completions.ChatCompletionContentPart[] = imageBase64
     ? [
